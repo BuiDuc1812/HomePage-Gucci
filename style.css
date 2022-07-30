@@ -1,0 +1,404 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+html {
+  font-family: Poppins;
+}
+body {
+  width: 100%;
+}
+header {
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  background-image: url(https://www.w3schools.com/w3images/parallax1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -2;
+}
+nav {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+nav::before {
+  position: absolute;
+  content: '';
+  height: 80px;
+  width: 100%;
+  background-color: white;
+  animation: animatetop 0.4s;
+  transform-origin: top;
+}
+@keyframes animatetop {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.logo-link {
+  height: inherit;
+  z-index: 1;
+}
+.img-link {
+  height: 100%;
+  padding: 16px;
+}
+.navbar {
+  display: flex;
+  list-style: none;
+}
+.navbar > li {
+  padding: 0 24px;
+  position: relative;
+}
+.navbar > li > a {
+  display: block;
+  font-size: 20px;
+}
+.navbar > li > a,
+.sub-navbar a {
+  text-decoration: none;
+  padding: 8px 0;
+  color: black;
+  position: relative;
+  transition: color 0.5s ease-in-out;
+}
+.navbar a::after {
+  position: absolute;
+  content: '';
+  height: 4px;
+  width: 0;
+  background-color: #3fd0d4;
+  bottom: 0;
+  left: 0;
+  transition: all 0.5s ease-in-out;
+}
+.navbar a:hover {
+  color: #3fd0d4;
+}
+.navbar a:hover::after,
+.sub-navbar > a:hover::after {
+  width: 100%;
+}
+.sub-navbar a {
+  font-size: 15px;
+}
+.sub-navbar {
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.6);
+  animation-name: growth;
+  animation-duration: 1s;
+  transform-origin: top;
+  transition: growth 1s ease-in-out;
+}
+.sub-navbar li {
+  min-width: 250px;
+  padding-top: 16px;
+}
+
+.navbar li:hover .sub-navbar {
+  display: block;
+}
+
+@keyframes growth {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+section {
+  z-index: -1;
+  width: 100%;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.title-heading {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 24px;
+  animation-name: title;
+  animation-duration: 1s;
+}
+@keyframes title {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+.title p {
+  font-size: 18px;
+  font-weight: 200;
+  color: white;
+}
+.title h1 {
+  font-size: 66px;
+  font-weight: 300;
+  color: white;
+}
+.title button {
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  padding: 16px 32px;
+  transition: all 0.5s ease;
+  transition: all 0.5s ease-in;
+}
+.title button:hover {
+  opacity: 0.7;
+  transform: translateY(8px);
+}
+
+.sub-title {
+  height: 90vh;
+  background-image: url(https://media.gucci.com/content/HomepageVideoBackgroundStandard_1300x758/1618587004/HomepageVideoBackgroundStandard_S21-Aria-ShowSpace-Runway_001_Default.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.sub-title-heading {
+  display: flex;
+  height: 90vh;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-infor {
+  max-width: 176px;
+  text-align: center;
+  background-color: #ccc;
+  padding: 28px 0;
+}
+
+.title-infor h2 {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.title-infor p {
+  padding: 12px 8px;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.title-infor a {
+  text-decoration: none;
+  color: black;
+}
+.title-infor a:hover {
+  opacity: 0.7;
+}
+.grid-heading {
+  background-color: white;
+}
+.grid-heading > h1 {
+  text-align: center;
+  padding: 24px;
+  font-size: 40px;
+  color: black;
+  font-weight: 400;
+}
+.section-grid {
+  display: grid;
+  text-align: center;
+  margin: auto;
+  max-width: 1200px;
+  grid-template-areas:
+    'item1 item2 item3'
+    'item4 item2 item5';
+  grid-column-gap: 30px;
+}
+.item2 {
+  grid-area: 1/2/3/3;
+}
+
+.grif-item {
+  overflow: hidden;
+}
+.grif-item p {
+  padding-top: 30px;
+  font-size: 20;
+  font-weight: 200px;
+}
+.grif-item a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+}
+.grif-item a:hover {
+  opacity: 0.5;
+}
+.grid-img {
+  width: 100%;
+  transition: all 0.5s ease;
+}
+.grif-item img:hover {
+  transform: scale(1.1);
+}
+
+.ceo-grid {
+  display: grid;
+  text-align: center;
+  margin: auto;
+  max-width: 1200px;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 600px)
+  );
+}
+.img-ceo {
+  padding: 24px;
+  max-width: 300px;
+  border-radius: 50%;
+  height: 300px;
+  transition: all 0.5s;
+}
+.img-ceo:hover {
+  transform: scale(1.1);
+}
+.ceo h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.ceo p {
+  font-style: italic;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 25%);
+}
+.products-item {
+  position: relative;
+}
+.products-img {
+  width: 100%;
+  height: 100%;
+  padding: 1px;
+}
+
+.sub-products-item {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.sub-products-item img {
+  width: 100%;
+  height: 100%;
+}
+
+.products-item:hover .sub-products-item {
+  display: block;
+}
+
+.last-list {
+  height: 80vh;
+  background-image: url(https://media.gucci.com/content/HeroRegularStandard_1600x675/1586180706/HeroRegularStandard_PF20-Essentials-001_001_Default.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shop-now {
+  text-align: center;
+}
+
+.shop-now h1 {
+  font-size: 60px;
+  font-weight: 400;
+  color: white;
+}
+.shop-now button {
+  padding: 12px 24px;
+  background-color: #ccc;
+  font-size: 16px;
+}
+.shop-now button:hover {
+  opacity: 0.6;
+}
+iframe {
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 24px;
+}
+footer {
+  background-color: #1b1b1b;
+  width: 100%;
+}
+.footer-infor {
+  margin: 0 auto;
+  padding: 28px 0;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.footer-infor ul {
+  max-width: 300px;
+  list-style: none;
+  color: #ccc;
+}
+
+.footer-infor li a {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
+.footer-infor li p {
+  font-size: 12px;
+  padding: 12px 0;
+}
+.fab {
+  color: #ccc;
+  padding: 0 12px;
+}
+
+.footer-infor input {
+  padding: 10px;
+  width: 100%;
+  margin: 12px 0;
+  background-color: black;
+  color: white;
+}
+
+/*rps*/
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  .grid-heading > h1 {
+    font-size: 30px;
+  }
+}
